@@ -1,0 +1,11 @@
+# Robots.txt for C.D.Rao Ground Water Exploration Consultancy
+# https://cdraogroundwater.com/
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /*?*
+
+# Host & Sitemap location
+Host: https://cdraogroundwater.com
+Sitemap: https://cdraogroundwater.com/sitemap.xml

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Homepage: Primary Landing Page -->
+  <url>
+    <loc>https://cdraogroundwater.com/</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://cdraogroundwater.com/hero-bg.png</image:loc>
+      <image:title>Scientific Ground Water Exploration &amp; Borewell Point Identification Visakhapatnam</image:title>
+      <image:caption>Geologist Chigurupati Durga Rao conducting 3D groundwater scanning and borehole point selection in Visakhapatnam.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://cdraogroundwater.com/logo.png</image:loc>
+      <image:title>C.D.Rao Ground Water Exploration Consultancy Logo</image:title>
+      <image:caption>Official emblem of C.D.Rao Ground Water Exploration Consultancy, recognized by Ground Water Dept, Govt. of A.P.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Service 1: Ground Water Survey -->
+  <url>
+    <loc>https://cdraogroundwater.com/services/ground-water-survey</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://cdraogroundwater.com/images/cd-rao-field.jpg</image:loc>
+      <image:title>Scientific Ground Water Survey Visakhapatnam</image:title>
+      <image:caption>In-depth hydrogeological field investigations for agricultural, residential, and industrial sites.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Service 2: Borewell Point Identification -->
+  <url>
+    <loc>https://cdraogroundwater.com/services/borewell-point-identification</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://cdraogroundwater.com/images/bore-point-found.jpg</image:loc>
+      <image:title>Borewell Point Identification &amp; Exact Marking</image:title>
+      <image:caption>Pinpoint accurate drilling points to prevent dry borewells and maximize water strike chances.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Service 3: Geophysical Survey -->
+  <url>
+    <loc>https://cdraogroundwater.com/services/geophysical-survey</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://cdraogroundwater.com/images/resistivity-survey.jpg</image:loc>
+      <image:title>Geophysical Resistivity Survey Andhra Pradesh</image:title>
+      <image:caption>Vertical Electrical Sounding (VES) and subsurface electrical profiling to evaluate rock resistivity.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Service 4: 3D Earth Scanning -->
+  <url>
+    <loc>https://cdraogroundwater.com/services/3d-earth-scanning</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://cdraogroundwater.com/images/3d-field-scan.jpg</image:loc>
+      <image:title>3D Earth Scanning &amp; Subsurface Aquifer Imaging</image:title>
+      <image:caption>Advanced multi-frequency electromagnetic resonance scanners for layer-by-layer subterranean mapping.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Service 5: Yield & Depth Estimation -->
+  <url>
+    <loc>https://cdraogroundwater.com/services/yield-depth-estimation</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdraogroundwater.com/images/water-detector.jpg</image:loc>
+      <image:title>Borewell Yield Testing &amp; Drilling Depth Estimation</image:title>
+      <image:caption>Scientific estimates of recommended drilling depth, casing length, and expected yield in inches/GPH.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Service 6: Site Selection & Feasibility -->
+  <url>
+    <loc>https://cdraogroundwater.com/services/site-selection-feasibility</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdraogroundwater.com/images/cd-rao-field.jpg</image:loc>
+      <image:title>Groundwater Feasibility &amp; Pre-Purchase Land Inspection</image:title>
+      <image:caption>Geological assessment for real estate layouts, farm plots, and commercial factory developments.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Service 7: Borewell Failure Analysis -->
+  <url>
+    <loc>https://cdraogroundwater.com/services/borewell-failure-analysis</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdraogroundwater.com/images/equipment-kit.jpg</image:loc>
+      <image:title>Borewell Failure Analysis &amp; Dry Well Diagnostics</image:title>
+      <image:caption>Investigate reasons for failed or dry borewells and locate adjacent recharge fissures.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Service 8: Rainwater Harvesting & Recharge -->
+  <url>
+    <loc>https://cdraogroundwater.com/services/rainwater-harvesting-recharge</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdraogroundwater.com/images/bore-point-found.jpg</image:loc>
+      <image:title>Rainwater Harvesting Pit &amp; Borewell Artificial Recharge</image:title>
+      <image:caption>Plan injection wells, recharge shafts, and infiltration pits to restore groundwater water tables.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Utility: Privacy Policy -->
+  <url>
+    <loc>https://cdraogroundwater.com/privacy-policy</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Utility: Terms & Conditions -->
+  <url>
+    <loc>https://cdraogroundwater.com/terms-and-conditions</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+</urlset>
