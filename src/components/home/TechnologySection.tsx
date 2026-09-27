@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { CheckCircle2, ArrowRight, Layers, Droplets } from 'lucide-react';
+import { YouTubeIcon } from '../common/YouTubeIcon';
 
 interface TechnologySectionProps {
   onOpenEnquiry: () => void;
@@ -142,8 +143,8 @@ export const TechnologySection: React.FC<TechnologySectionProps> = ({ onOpenEnqu
               </div>
             </div>
 
-            {/* CTA Button */}
-            <div className="pt-4 flex items-center gap-4">
+            {/* CTA Button Row with YouTube */}
+            <div className="pt-4 flex flex-wrap items-center gap-3">
               <Link
                 to="/services/3d-earth-scanning"
                 className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-bold text-sm shadow-xl shadow-sky-500/25 transition-all"
@@ -151,10 +152,20 @@ export const TechnologySection: React.FC<TechnologySectionProps> = ({ onOpenEnqu
                 <span>Explore Technology</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
+
+              <a
+                href="https://www.youtube.com/@BoreMitra/shorts"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-[#ff0000] hover:bg-[#cc0000] text-white font-bold text-sm shadow-lg shadow-red-600/30 transition-all cursor-pointer"
+              >
+                <YouTubeIcon className="w-4 h-4 fill-white" />
+                <span>Watch Demos</span>
+              </a>
               
               <button
                 onClick={onOpenEnquiry}
-                className="px-5 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-sky-300 font-semibold text-sm border border-sky-500/30 transition-colors"
+                className="px-5 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-sky-300 font-semibold text-sm border border-sky-500/30 transition-colors cursor-pointer"
               >
                 Book 3D Scan
               </button>

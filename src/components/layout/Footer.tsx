@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Clock, ArrowUp, Droplets, ShieldCheck } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, ArrowUp, ShieldCheck } from 'lucide-react';
 import { servicesData } from '../../data/servicesData';
+import { YouTubeIcon } from '../common/YouTubeIcon';
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -18,18 +19,23 @@ export const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 pb-12 border-b border-slate-800">
           
-          {/* Col 1: Brand & Credibility */}
+          {/* Col 1: Brand & Geologist Credibility */}
           <div className="space-y-4">
             <Link to="/" className="flex items-center gap-3">
               <div className="w-14 h-14 rounded-full overflow-hidden bg-slate-900 border border-sky-400/40 p-0.5 flex-shrink-0">
                 <img
                   src="/logo.png"
-                  alt="C.D. Rao Ground Water Exploration Consultancy"
+                  alt="Geologist C.D. Rao Ground Water Exploration Consultancy"
                   className="w-full h-full object-contain rounded-full"
                 />
               </div>
               <div>
-                <h3 className="text-xl font-extrabold text-white tracking-tight">C.D. RAO</h3>
+                <h3 className="text-xl font-extrabold text-white tracking-tight flex items-center gap-1.5">
+                  <span>C.D. RAO</span>
+                  <span className="text-[10px] font-bold text-sky-400 bg-sky-950 border border-sky-400/30 px-2 py-0.5 rounded-full">
+                    Geologist
+                  </span>
+                </h3>
                 <p className="text-xs text-sky-400 font-medium tracking-wide uppercase">
                   Ground Water Exploration Consultancy
                 </p>
@@ -37,12 +43,28 @@ export const Footer: React.FC = () => {
             </Link>
 
             <p className="text-sm text-slate-400 leading-relaxed">
-              Scientific ground water exploration and borewell point identification expert in Visakhapatnam. Recognized by Ground Water & Water Audit Department, Govt. of A.P.
+              Scientific ground water exploration and borewell point identification consultancy in Visakhapatnam by recognized geologist <strong className="text-slate-200">Chigurupati Durga Rao (M.Sc Geology)</strong>.
             </p>
 
-            <div className="flex items-center gap-2 pt-1 text-xs text-sky-300 font-medium">
-              <ShieldCheck className="w-4 h-4 text-emerald-400" />
-              <span>Chigurupati Durga Rao, M.Sc Geology</span>
+            <div className="flex items-center gap-2 pt-1 text-xs text-emerald-300 font-medium">
+              <ShieldCheck className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+              <span>Recognized by Ground Water &amp; Water Audit Dept., Govt. of A.P.</span>
+            </div>
+
+            {/* Official YouTube Channel Button */}
+            <div className="pt-2">
+              <span className="text-xs font-semibold text-slate-400 block mb-2">
+                Watch My Services &amp; Field Works:
+              </span>
+              <a
+                href="https://www.youtube.com/@BoreMitra/shorts"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#ff0000] hover:bg-[#cc0000] text-white font-bold text-xs shadow-lg shadow-red-600/30 transition-all transform hover:-translate-y-0.5"
+              >
+                <YouTubeIcon className="w-4 h-4 fill-white" />
+                <span>YouTube Channel @BoreMitra</span>
+              </a>
             </div>
           </div>
 
@@ -80,6 +102,17 @@ export const Footer: React.FC = () => {
               <li>
                 <a href="/#contact" className="hover:text-sky-400 transition-colors">Contact Us</a>
               </li>
+              <li>
+                <a
+                  href="https://www.youtube.com/@BoreMitra/shorts"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-red-400 hover:text-red-300 font-semibold transition-colors flex items-center gap-1.5 pt-1"
+                >
+                  <YouTubeIcon className="w-3.5 h-3.5 fill-red-400" />
+                  <span>Watch on YouTube (@BoreMitra)</span>
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -90,7 +123,7 @@ export const Footer: React.FC = () => {
               Our Services
             </h4>
             <ul className="space-y-2 text-sm">
-              {servicesData.slice(0, 7).map((srv) => (
+              {servicesData.slice(0, 8).map((srv) => (
                 <li key={srv.id}>
                   <Link
                     to={`/services/${srv.slug}`}
@@ -101,19 +134,10 @@ export const Footer: React.FC = () => {
                   </Link>
                 </li>
               ))}
-              <li>
-                <Link
-                  to="/services/drilling-techniques-guidance"
-                  className="hover:text-sky-400 transition-colors flex items-center gap-1.5"
-                >
-                  <span className="text-sky-500 text-xs">›</span>
-                  <span>Drilling Techniques Guidance</span>
-                </Link>
-              </li>
             </ul>
           </div>
 
-          {/* Col 4: Contact Info */}
+          {/* Col 4: Contact & Geologist Details */}
           <div>
             <h4 className="text-white font-bold text-base mb-4 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-sky-500"></span>
@@ -157,7 +181,7 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-          <p>© {currentYear} C.D.Rao Ground Water Exploration Consultancy. All Rights Reserved.</p>
+          <p>© {currentYear} C.D.Rao Ground Water Exploration Consultancy | Geologist Chigurupati Durga Rao, M.Sc Geology. All Rights Reserved.</p>
 
           <div className="flex items-center gap-6">
             <Link to="/privacy-policy" className="hover:text-sky-400 transition-colors">
@@ -165,12 +189,22 @@ export const Footer: React.FC = () => {
             </Link>
             <span className="text-slate-700">|</span>
             <Link to="/terms-and-conditions" className="hover:text-sky-400 transition-colors">
-              Terms & Conditions
+              Terms &amp; Conditions
             </Link>
+            <span className="text-slate-700">|</span>
+            <a
+              href="https://www.youtube.com/@BoreMitra/shorts"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-red-400 hover:text-red-300 flex items-center gap-1 font-semibold"
+            >
+              <YouTubeIcon className="w-3.5 h-3.5 fill-red-400" />
+              <span>@BoreMitra</span>
+            </a>
             <span className="text-slate-700">|</span>
             <button
               onClick={scrollToTop}
-              className="flex items-center gap-1.5 p-2 rounded-full bg-slate-900 border border-slate-700 hover:border-sky-400 hover:text-white transition-colors"
+              className="flex items-center gap-1.5 p-2 rounded-full bg-slate-900 border border-slate-700 hover:border-sky-400 hover:text-white transition-colors cursor-pointer"
               aria-label="Scroll to top"
             >
               <ArrowUp className="w-4 h-4" />

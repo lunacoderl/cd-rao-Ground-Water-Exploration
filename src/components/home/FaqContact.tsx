@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ChevronDown, Phone, Mail, MapPin, Clock, Send, CheckCircle2 } from 'lucide-react';
 import { faqData } from '../../data/faqData';
 import { servicesData } from '../../data/servicesData';
+import { YouTubeIcon } from '../common/YouTubeIcon';
 
 export const FaqContact: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -96,10 +97,10 @@ export const FaqContact: React.FC = () => {
                   Direct Consultancy
                 </span>
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-white mt-1">
-                  Contact Us
+                  Contact Geologist C.D. Rao
                 </h3>
                 <p className="text-xs text-slate-300 mt-1">
-                  Reach out for reliable ground water exploration in Visakhapatnam.
+                  Reach out to recognized Geologist Chigurupati Durga Rao for scientific ground water exploration in Visakhapatnam.
                 </p>
               </div>
 
@@ -148,6 +149,19 @@ export const FaqContact: React.FC = () => {
                   <p className="text-slate-300 text-xs">
                     5:00 AM – 11:30 PM (All 7 Days)
                   </p>
+                </div>
+
+                {/* YouTube Link in Contact Info */}
+                <div className="pt-2">
+                  <a
+                    href="https://www.youtube.com/@BoreMitra/shorts"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-[#ff0000] hover:bg-[#cc0000] text-white font-bold text-xs shadow-md shadow-red-600/25 transition-all"
+                  >
+                    <YouTubeIcon className="w-4 h-4 fill-white" />
+                    <span>Watch Field Works on YouTube @BoreMitra</span>
+                  </a>
                 </div>
               </div>
 

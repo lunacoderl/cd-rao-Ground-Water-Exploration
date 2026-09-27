@@ -17,6 +17,7 @@ import {
 import { servicesData } from '../data/servicesData';
 import { Lightbox } from '../components/common/Lightbox';
 import { EnquiryModal } from '../components/common/EnquiryModal';
+import { YouTubeIcon } from '../components/common/YouTubeIcon';
 
 export const ServiceDetail: React.FC = () => {
   const { serviceSlug } = useParams<{ serviceSlug: string }>();
@@ -79,13 +80,27 @@ export const ServiceDetail: React.FC = () => {
               {service.shortDescription}
             </p>
 
-            <div className="flex flex-wrap items-center gap-4 pt-3">
+            <div className="flex items-center gap-2 text-xs text-sky-300 font-medium">
+              <span>Field Survey &amp; Analysis by Certified Geologist Chigurupati Durga Rao, M.Sc</span>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-3">
               <button
                 onClick={() => setEnquiryOpen(true)}
                 className="px-6 sm:px-8 py-3.5 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-bold text-sm shadow-xl shadow-sky-500/30 border border-sky-400/30 transition-all cursor-pointer"
               >
                 Request This Service
               </button>
+
+              <a
+                href="https://www.youtube.com/@BoreMitra/shorts"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-5 py-3.5 rounded-xl bg-[#ff0000] hover:bg-[#cc0000] text-white font-bold text-sm shadow-xl shadow-red-600/30 transition-all cursor-pointer"
+              >
+                <YouTubeIcon className="w-4 h-4 fill-white" />
+                <span>YouTube @BoreMitra</span>
+              </a>
 
               <a
                 href="tel:+919949401970"
@@ -96,7 +111,7 @@ export const ServiceDetail: React.FC = () => {
               </a>
 
               <a
-                href="https://wa.me/919949401970?text=Hello%20C.D.Rao%20Sir,%20I%20am%20interested%20in%20your%20service:%20"
+                href={`https://wa.me/919949401970?text=Hello%20Geologist%20C.D.Rao%20Sir,%20I%20am%20interested%20in%20your%20service:%20${encodeURIComponent(service.title)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-4 py-3.5 rounded-xl bg-emerald-600/30 hover:bg-emerald-600/40 text-emerald-300 font-semibold text-xs sm:text-sm border border-emerald-500/40 transition-colors backdrop-blur-sm"
@@ -482,23 +497,33 @@ export const ServiceDetail: React.FC = () => {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-center gap-4 flex-shrink-0 w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row flex-wrap items-center gap-3 flex-shrink-0 w-full sm:w-auto">
+              <a
+                href="https://www.youtube.com/@BoreMitra/shorts"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto flex items-center justify-center gap-2 py-3.5 px-5 rounded-xl bg-[#ff0000] hover:bg-[#cc0000] text-white font-bold text-sm shadow-xl shadow-red-600/30 transition-all cursor-pointer"
+              >
+                <YouTubeIcon className="w-4 h-4 fill-white" />
+                <span>YouTube @BoreMitra</span>
+              </a>
+
               <a
                 href="tel:+919949401970"
                 className="w-full sm:w-auto flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-bold text-sm shadow-xl shadow-sky-500/30"
               >
                 <Phone className="w-4 h-4 fill-white" />
-                <span>Call Now: 9949401970</span>
+                <span>Call Now</span>
               </a>
 
               <a
-                href="https://wa.me/919949401970?text=Hello%20C.D.Rao%20Sir,%20I%20am%20interested%20in%20your%20services."
+                href="https://wa.me/919949401970?text=Hello%20Geologist%20C.D.Rao%20Sir,%20I%20am%20interested%20in%20your%20services."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-xl shadow-emerald-600/30"
+                className="w-full sm:w-auto flex items-center justify-center gap-2 py-3.5 px-5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-xl shadow-emerald-600/30"
               >
                 <MessageSquare className="w-4 h-4 fill-white" />
-                <span>WhatsApp Us</span>
+                <span>WhatsApp</span>
               </a>
             </div>
           </div>
