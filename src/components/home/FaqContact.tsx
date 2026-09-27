@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronDown, Phone, Mail, MapPin, Clock, Send, CheckCircle2 } from 'lucide-react';
+import { ChevronDown, Phone, Mail, MapPin, Clock, Send, CheckCircle2, MessageSquare } from 'lucide-react';
 import { faqData } from '../../data/faqData';
 import { servicesData } from '../../data/servicesData';
 import { YouTubeIcon } from '../common/YouTubeIcon';
@@ -18,6 +18,7 @@ export const FaqContact: React.FC = () => {
 
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [whatsappLink, setWhatsappLink] = useState('');
 
   const toggleFaq = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -26,10 +27,46 @@ export const FaqContact: React.FC = () => {
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+
+    const messageLines = [
+      `Hello Geologist C.D. Rao Sir,`,
+      ``,
+      `I would like to book a Ground Water Exploration Survey with the following details:`,
+      ``,
+      `*Client Name:* ${formData.name.trim()}`,
+      `*Phone Number:* ${formData.phone.trim()}`,
+      `*Site Location:* ${formData.location.trim()}`,
+      `*Service Required:* ${formData.service}`,
+    ];
+
+    if (formData.preferredDate) {
+      messageLines.push(`*Preferred Date:* ${formData.preferredDate}`);
+    }
+    if (formData.message.trim()) {
+      messageLines.push(`*Property Details / Notes:* ${formData.message.trim()}`);
+    }
+
+    messageLines.push(``);
+    messageLines.push(`Please confirm the site visit schedule. Thank you!`);
+
+    const fullMessage = messageLines.join('\n');
+    const targetUrl = `https://wa.me/919949401970?text=${encodeURIComponent(fullMessage)}`;
+    setWhatsappLink(targetUrl);
+
+    // Directly open WhatsApp with user-filled details
+    try {
+      const opened = window.open(targetUrl, '_blank');
+      if (!opened || opened.closed || typeof opened.closed === 'undefined') {
+        window.location.href = targetUrl;
+      }
+    } catch {
+      window.location.href = targetUrl;
+    }
+
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitted(true);
-    }, 700);
+    }, 400);
   };
 
   return (
@@ -169,19 +206,40 @@ export const FaqContact: React.FC = () => {
               <div className="pt-6">
                 {submitted ? (
                   <div className="bg-white text-slate-900 rounded-xl p-6 text-center space-y-3">
-                    <div className="w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
+                    <div className="w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto shadow-inner">
                       <CheckCircle2 className="w-6 h-6" />
                     </div>
-                    <h4 className="text-lg font-bold text-slate-900">Enquiry Submitted!</h4>
-                    <p className="text-xs text-slate-600">
-                      Thank you. Geologist C.D. Rao will contact you shortly to confirm your survey slot.
+                    <h4 className="text-lg font-bold text-slate-900">Enquiry Ready on WhatsApp!</h4>
+                    <p className="text-xs text-slate-600 leading-relaxed">
+                      Thank you, <span className="font-semibold text-emerald-600">{formData.name}</span>. Your details have been formatted for Geologist C.D. Rao's WhatsApp.
                     </p>
-                    <button
-                      onClick={() => setSubmitted(false)}
-                      className="mt-2 px-4 py-2 rounded-lg bg-slate-800 text-xs text-white font-semibold hover:bg-slate-700"
-                    >
-                      Submit Another Enquiry
-                    </button>
+                    <div className="pt-2 flex flex-col gap-2">
+                      <a
+                        href={whatsappLink || `https://wa.me/919949401970`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full py-2.5 px-4 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-md shadow-emerald-600/30 transition-all cursor-pointer"
+                      >
+                        <MessageSquare className="w-4 h-4" />
+                        <span>Open WhatsApp Chat</span>
+                      </a>
+                      <button
+                        onClick={() => {
+                          setSubmitted(false);
+                          setFormData({
+                            name: '',
+                            phone: '',
+                            location: '',
+                            service: 'Ground Water Survey',
+                            preferredDate: '',
+                            message: '',
+                          });
+                        }}
+                        className="w-full py-2 rounded-lg bg-slate-100 text-xs text-slate-700 font-semibold hover:bg-slate-200 transition-colors cursor-pointer"
+                      >
+                        Submit Another Enquiry
+                      </button>
+                    </div>
                   </div>
                 ) : (
                   <form onSubmit={handleFormSubmit} className="bg-white text-slate-900 rounded-xl p-4 sm:p-5 shadow-lg space-y-3">
@@ -192,7 +250,7 @@ export const FaqContact: React.FC = () => {
                         placeholder="Full Name *"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full bg-slate-50 border border-slate-300 focus:border-sky-500 rounded-lg px-3 py-2 text-xs text-slate-900 placeholder-slate-400 outline-none"
+                        className="w-full bg-slate-50 border border-slate-300 focus:border-emerald-500 rounded-lg px-3 py-2 text-xs text-slate-900 placeholder-slate-400 outline-none"
                       />
                     </div>
 
@@ -204,7 +262,7 @@ export const FaqContact: React.FC = () => {
                         placeholder="10-digit Phone Number *"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full bg-slate-50 border border-slate-300 focus:border-sky-500 rounded-lg px-3 py-2 text-xs text-slate-900 placeholder-slate-400 outline-none"
+                        className="w-full bg-slate-50 border border-slate-300 focus:border-emerald-500 rounded-lg px-3 py-2 text-xs text-slate-900 placeholder-slate-400 outline-none"
                       />
                     </div>
 
@@ -215,7 +273,7 @@ export const FaqContact: React.FC = () => {
                         placeholder="Location / Area (e.g. Anakapalle / MVP Colony) *"
                         value={formData.location}
                         onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                        className="w-full bg-slate-50 border border-slate-300 focus:border-sky-500 rounded-lg px-3 py-2 text-xs text-slate-900 placeholder-slate-400 outline-none"
+                        className="w-full bg-slate-50 border border-slate-300 focus:border-emerald-500 rounded-lg px-3 py-2 text-xs text-slate-900 placeholder-slate-400 outline-none"
                       />
                     </div>
 
@@ -223,7 +281,7 @@ export const FaqContact: React.FC = () => {
                       <select
                         value={formData.service}
                         onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                        className="w-full bg-slate-50 border border-slate-300 focus:border-sky-500 rounded-lg px-2.5 py-2 text-xs text-slate-800 outline-none"
+                        className="w-full bg-slate-50 border border-slate-300 focus:border-emerald-500 rounded-lg px-2.5 py-2 text-xs text-slate-800 outline-none"
                       >
                         {servicesData.map((s) => (
                           <option key={s.id} value={s.title}>
@@ -236,7 +294,7 @@ export const FaqContact: React.FC = () => {
                         type="date"
                         value={formData.preferredDate}
                         onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}
-                        className="w-full bg-slate-50 border border-slate-300 focus:border-sky-500 rounded-lg px-2.5 py-2 text-xs text-slate-800 outline-none"
+                        className="w-full bg-slate-50 border border-slate-300 focus:border-emerald-500 rounded-lg px-2.5 py-2 text-xs text-slate-800 outline-none"
                       />
                     </div>
 
@@ -246,21 +304,21 @@ export const FaqContact: React.FC = () => {
                         placeholder="Message or property details (optional)"
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        className="w-full bg-slate-50 border border-slate-300 focus:border-sky-500 rounded-lg px-3 py-2 text-xs text-slate-900 placeholder-slate-400 outline-none resize-none"
+                        className="w-full bg-slate-50 border border-slate-300 focus:border-emerald-500 rounded-lg px-3 py-2 text-xs text-slate-900 placeholder-slate-400 outline-none resize-none"
                       ></textarea>
                     </div>
 
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full py-2.5 rounded-lg bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-sm transition-all cursor-pointer disabled:opacity-50"
+                      className="w-full py-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md shadow-emerald-600/25 transition-all cursor-pointer disabled:opacity-50"
                     >
                       {isSubmitting ? (
-                        <span>Processing...</span>
+                        <span>Opening WhatsApp...</span>
                       ) : (
                         <>
-                          <Send className="w-4 h-4" />
-                          <span>Send Enquiry</span>
+                          <MessageSquare className="w-4 h-4" />
+                          <span>Send Enquiry via WhatsApp</span>
                         </>
                       )}
                     </button>

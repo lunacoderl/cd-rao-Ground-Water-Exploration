@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Send, CheckCircle2, Phone, Calendar, MapPin, User } from 'lucide-react';
+import { X, Send, CheckCircle2, Phone, Calendar, MapPin, User, MessageSquare } from 'lucide-react';
 import { servicesData } from '../../data/servicesData';
 
 interface EnquiryModalProps {
@@ -31,6 +31,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
 
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [whatsappLink, setWhatsappLink] = useState('');
 
   if (!isOpen) return null;
 
@@ -38,11 +39,45 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate sending enquiry
+    const messageLines = [
+      `Hello Geologist C.D. Rao Sir,`,
+      ``,
+      `I would like to book a Ground Water Exploration Survey with the following details:`,
+      ``,
+      `*Client Name:* ${formData.name}`,
+      `*Phone Number:* ${formData.phone}`,
+      `*Site Location:* ${formData.location}`,
+      `*Service Required:* ${formData.service}`,
+    ];
+
+    if (formData.preferredDate) {
+      messageLines.push(`*Preferred Date:* ${formData.preferredDate}`);
+    }
+    if (formData.message) {
+      messageLines.push(`*Property Details / Notes:* ${formData.message}`);
+    }
+
+    messageLines.push(``);
+    messageLines.push(`Please confirm the site visit schedule. Thank you!`);
+
+    const fullMessage = messageLines.join('\n');
+    const targetUrl = `https://wa.me/919949401970?text=${encodeURIComponent(fullMessage)}`;
+    setWhatsappLink(targetUrl);
+
+    // Directly open WhatsApp with user-filled details
+    try {
+      const opened = window.open(targetUrl, '_blank');
+      if (!opened || opened.closed || typeof opened.closed === 'undefined') {
+        window.location.href = targetUrl;
+      }
+    } catch {
+      window.location.href = targetUrl;
+    }
+
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitted(true);
-    }, 800);
+    }, 400);
   };
 
   const handleReset = () => {
@@ -63,34 +98,37 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
       <div className="relative max-w-lg w-full bg-white border border-slate-200 rounded-2xl shadow-2xl p-6 sm:p-8 my-8 text-slate-900">
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-2.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 transition-colors"
+          className="absolute top-4 right-4 p-2.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 transition-colors cursor-pointer"
           aria-label="Close Enquiry Modal"
         >
           <X className="w-5 h-5" />
         </button>
 
         {submitted ? (
-          <div className="text-center py-8 space-y-4">
-            <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 border border-emerald-200 flex items-center justify-center mx-auto">
+          <div className="text-center py-6 space-y-4">
+            <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 border border-emerald-200 flex items-center justify-center mx-auto shadow-inner">
               <CheckCircle2 className="w-8 h-8" />
             </div>
-            <h3 className="text-2xl font-bold text-slate-900">Enquiry Received!</h3>
-            <p className="text-slate-600 text-sm max-w-sm mx-auto">
-              Thank you, <span className="font-semibold text-sky-600">{formData.name}</span>. Geologist C.D. Rao will call you shortly on{' '}
-              <span className="font-semibold text-sky-600">{formData.phone}</span> to discuss your site survey requirement.
+            <h3 className="text-2xl font-bold text-slate-900">Enquiry Sent to WhatsApp!</h3>
+            <p className="text-slate-600 text-sm max-w-sm mx-auto leading-relaxed">
+              Thank you, <span className="font-semibold text-emerald-600">{formData.name}</span>. Your enquiry details have been forwarded to Geologist C.D. Rao's WhatsApp chat.
             </p>
-            <div className="pt-4 flex flex-col sm:flex-row gap-3 justify-center">
+            <p className="text-xs text-slate-500">
+              If WhatsApp did not open automatically on your device, click below:
+            </p>
+            <div className="pt-2 flex flex-col sm:flex-row gap-3 justify-center">
               <a
-                href={`https://wa.me/919949401970?text=Hi%20C.D.Rao%20Sir,%20I%20just%20submitted%20an%20enquiry%20for%20${encodeURIComponent(formData.service)}%20at%20${encodeURIComponent(formData.location)}.`}
+                href={whatsappLink || `https://wa.me/919949401970`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="py-2.5 px-5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs shadow-sm"
+                className="py-3 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm shadow-md shadow-emerald-600/30 flex items-center justify-center gap-2 transition-all cursor-pointer"
               >
-                Connect on WhatsApp
+                <MessageSquare className="w-4 h-4" />
+                <span>Open WhatsApp Chat</span>
               </a>
               <button
                 onClick={handleReset}
-                className="py-2.5 px-5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition-colors"
+                className="py-3 px-5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs sm:text-sm font-semibold transition-colors cursor-pointer"
               >
                 Close
               </button>
@@ -99,14 +137,16 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
         ) : (
           <div>
             <div className="mb-6">
-              <span className="text-xs uppercase font-bold tracking-wider text-sky-600">
-                Ground Water Exploration
-              </span>
-              <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 mt-1">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="text-xs uppercase font-bold tracking-wider text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+                  Instant WhatsApp Booking
+                </span>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900">
                 Request a Field Survey
               </h3>
               <p className="text-xs text-slate-500 mt-1">
-                Fill this form to book an on-site groundwater exploration and point marking survey.
+                Fill this form to instantly connect with Geologist C.D. Rao on WhatsApp with your survey details.
               </p>
             </div>
 
@@ -123,7 +163,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
                     placeholder="Enter your name"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full bg-slate-50 border border-slate-300 focus:border-sky-500 rounded-xl pl-9 pr-3.5 py-2.5 text-xs sm:text-sm text-slate-900 placeholder-slate-400 outline-none transition-all focus:bg-white"
+                    className="w-full bg-slate-50 border border-slate-300 focus:border-emerald-500 rounded-xl pl-9 pr-3.5 py-2.5 text-xs sm:text-sm text-slate-900 placeholder-slate-400 outline-none transition-all focus:bg-white"
                   />
                 </div>
               </div>
@@ -141,7 +181,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
                     placeholder="e.g. 9949401970"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full bg-slate-50 border border-slate-300 focus:border-sky-500 rounded-xl pl-9 pr-3.5 py-2.5 text-xs sm:text-sm text-slate-900 placeholder-slate-400 outline-none transition-all focus:bg-white"
+                    className="w-full bg-slate-50 border border-slate-300 focus:border-emerald-500 rounded-xl pl-9 pr-3.5 py-2.5 text-xs sm:text-sm text-slate-900 placeholder-slate-400 outline-none transition-all focus:bg-white"
                   />
                 </div>
               </div>
@@ -158,7 +198,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
                     placeholder="e.g. MVP Colony, Visakhapatnam"
                     value={formData.location}
                     onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                    className="w-full bg-slate-50 border border-slate-300 focus:border-sky-500 rounded-xl pl-9 pr-3.5 py-2.5 text-xs sm:text-sm text-slate-900 placeholder-slate-400 outline-none transition-all focus:bg-white"
+                    className="w-full bg-slate-50 border border-slate-300 focus:border-emerald-500 rounded-xl pl-9 pr-3.5 py-2.5 text-xs sm:text-sm text-slate-900 placeholder-slate-400 outline-none transition-all focus:bg-white"
                   />
                 </div>
               </div>
@@ -171,7 +211,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
                   <select
                     value={formData.service}
                     onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                    className="w-full bg-slate-50 border border-slate-300 focus:border-sky-500 rounded-xl px-3 py-2.5 text-xs text-slate-900 outline-none focus:bg-white"
+                    className="w-full bg-slate-50 border border-slate-300 focus:border-emerald-500 rounded-xl px-3 py-2.5 text-xs text-slate-900 outline-none focus:bg-white"
                   >
                     {servicesData.map((s) => (
                       <option key={s.id} value={s.title}>
@@ -190,7 +230,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
                       type="date"
                       value={formData.preferredDate}
                       onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}
-                      className="w-full bg-slate-50 border border-slate-300 focus:border-sky-500 rounded-xl px-3 py-2.5 text-xs text-slate-900 outline-none focus:bg-white"
+                      className="w-full bg-slate-50 border border-slate-300 focus:border-emerald-500 rounded-xl px-3 py-2.5 text-xs text-slate-900 outline-none focus:bg-white"
                     />
                   </div>
                 </div>
@@ -205,21 +245,21 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
                   placeholder="Plot dimensions, previous borewell depth if any..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full bg-slate-50 border border-slate-300 focus:border-sky-500 rounded-xl p-3 text-xs text-slate-900 placeholder-slate-400 outline-none resize-none focus:bg-white"
+                  className="w-full bg-slate-50 border border-slate-300 focus:border-emerald-500 rounded-xl p-3 text-xs text-slate-900 placeholder-slate-400 outline-none resize-none focus:bg-white"
                 ></textarea>
               </div>
 
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-3 rounded-xl bg-gradient-to-r from-sky-600 to-blue-600 hover:from-sky-500 hover:to-blue-500 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-sky-600/25 transition-all cursor-pointer disabled:opacity-50"
+                className="w-full py-3.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/25 transition-all cursor-pointer disabled:opacity-50"
               >
                 {isSubmitting ? (
-                  <span>Submitting...</span>
+                  <span>Opening WhatsApp...</span>
                 ) : (
                   <>
-                    <Send className="w-4 h-4" />
-                    <span>Confirm Survey Request</span>
+                    <MessageSquare className="w-4 h-4" />
+                    <span>Send Enquiry via WhatsApp</span>
                   </>
                 )}
               </button>
