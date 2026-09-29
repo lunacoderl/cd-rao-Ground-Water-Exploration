@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { CheckCircle2, ArrowRight, Layers, Droplets } from 'lucide-react';
 import { YouTubeIcon } from '../common/YouTubeIcon';
+import { InstagramIcon } from '../common/InstagramIcon';
 
 interface TechnologySectionProps {
   onOpenEnquiry: () => void;
@@ -157,10 +158,20 @@ export const TechnologySection: React.FC<TechnologySectionProps> = ({ onOpenEnqu
                 href="https://www.youtube.com/@BoreMitra/shorts"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-[#ff0000] hover:bg-[#cc0000] text-white font-bold text-sm shadow-lg shadow-red-600/30 transition-all cursor-pointer"
+                className="inline-flex items-center gap-1.5 px-4 py-3.5 rounded-xl bg-[#ff0000] hover:bg-[#cc0000] text-white font-bold text-sm shadow-lg shadow-red-600/30 transition-all cursor-pointer"
               >
                 <YouTubeIcon className="w-4 h-4 fill-white" />
-                <span>Watch Demos</span>
+                <span>YouTube Demos</span>
+              </a>
+
+              <a
+                href="https://www.instagram.com/c.d.raogeologist?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw=="
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-4 py-3.5 rounded-xl bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] hover:opacity-95 text-white font-bold text-sm shadow-lg shadow-pink-600/30 transition-all cursor-pointer"
+              >
+                <InstagramIcon className="w-4 h-4 fill-white" />
+                <span>Instagram @c.d.raogeologist</span>
               </a>
               
               <button

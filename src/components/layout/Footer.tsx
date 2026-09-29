@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Clock, ArrowUp, ShieldCheck } from 'lucide-react';
 import { servicesData } from '../../data/servicesData';
 import { YouTubeIcon } from '../common/YouTubeIcon';
+import { InstagramIcon } from '../common/InstagramIcon';
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -51,20 +52,31 @@ export const Footer: React.FC = () => {
               <span>Recognized by Ground Water &amp; Water Audit Dept., Govt. of A.P.</span>
             </div>
 
-            {/* Official YouTube Channel Button */}
-            <div className="pt-2">
-              <span className="text-xs font-semibold text-slate-400 block mb-2">
+            {/* Official Social Channels */}
+            <div className="pt-2 space-y-2">
+              <span className="text-xs font-semibold text-slate-400 block">
                 Watch My Services &amp; Field Works:
               </span>
-              <a
-                href="https://www.youtube.com/@BoreMitra/shorts"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#ff0000] hover:bg-[#cc0000] text-white font-bold text-xs shadow-lg shadow-red-600/30 transition-all transform hover:-translate-y-0.5"
-              >
-                <YouTubeIcon className="w-4 h-4 fill-white" />
-                <span>YouTube Channel @BoreMitra</span>
-              </a>
+              <div className="flex flex-col gap-2">
+                <a
+                  href="https://www.youtube.com/@BoreMitra/shorts"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#ff0000] hover:bg-[#cc0000] text-white font-bold text-xs shadow-md shadow-red-600/25 transition-all transform hover:-translate-y-0.5"
+                >
+                  <YouTubeIcon className="w-4 h-4 fill-white" />
+                  <span>YouTube Channel @BoreMitra</span>
+                </a>
+                <a
+                  href="https://www.instagram.com/c.d.raogeologist?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw=="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] hover:opacity-90 text-white font-bold text-xs shadow-md shadow-pink-600/25 transition-all transform hover:-translate-y-0.5"
+                >
+                  <InstagramIcon className="w-4 h-4 fill-white" />
+                  <span>Instagram @c.d.raogeologist</span>
+                </a>
+              </div>
             </div>
           </div>
 
@@ -111,6 +123,17 @@ export const Footer: React.FC = () => {
                 >
                   <YouTubeIcon className="w-3.5 h-3.5 fill-red-400" />
                   <span>Watch on YouTube (@BoreMitra)</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/c.d.raogeologist?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw=="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-pink-400 hover:text-pink-300 font-semibold transition-colors flex items-center gap-1.5 pt-0.5"
+                >
+                  <InstagramIcon className="w-3.5 h-3.5 fill-pink-400" />
+                  <span>Instagram (@c.d.raogeologist)</span>
                 </a>
               </li>
             </ul>
@@ -200,6 +223,16 @@ export const Footer: React.FC = () => {
             >
               <YouTubeIcon className="w-3.5 h-3.5 fill-red-400" />
               <span>@BoreMitra</span>
+            </a>
+            <span className="text-slate-700">|</span>
+            <a
+              href="https://www.instagram.com/c.d.raogeologist?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw=="
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-pink-400 hover:text-pink-300 flex items-center gap-1 font-semibold"
+            >
+              <InstagramIcon className="w-3.5 h-3.5 fill-pink-400" />
+              <span>@c.d.raogeologist</span>
             </a>
             <span className="text-slate-700">|</span>
             <button

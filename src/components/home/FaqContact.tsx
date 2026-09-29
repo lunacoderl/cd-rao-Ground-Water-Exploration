@@ -3,6 +3,7 @@ import { ChevronDown, Phone, Mail, MapPin, Clock, Send, CheckCircle2, MessageSqu
 import { faqData } from '../../data/faqData';
 import { servicesData } from '../../data/servicesData';
 import { YouTubeIcon } from '../common/YouTubeIcon';
+import { InstagramIcon } from '../common/InstagramIcon';
 
 export const FaqContact: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -188,16 +189,25 @@ export const FaqContact: React.FC = () => {
                   </p>
                 </div>
 
-                {/* YouTube Link in Contact Info */}
-                <div className="pt-2">
+                {/* Social Channel Links in Contact Info */}
+                <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-2">
                   <a
                     href="https://www.youtube.com/@BoreMitra/shorts"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-[#ff0000] hover:bg-[#cc0000] text-white font-bold text-xs shadow-md shadow-red-600/25 transition-all"
+                    className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-[#ff0000] hover:bg-[#cc0000] text-white font-bold text-xs shadow-md shadow-red-600/25 transition-all"
                   >
-                    <YouTubeIcon className="w-4 h-4 fill-white" />
-                    <span>Watch Field Works on YouTube @BoreMitra</span>
+                    <YouTubeIcon className="w-4 h-4 fill-white flex-shrink-0" />
+                    <span>YouTube @BoreMitra</span>
+                  </a>
+                  <a
+                    href="https://www.instagram.com/c.d.raogeologist?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw=="
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] hover:opacity-95 text-white font-bold text-xs shadow-md shadow-pink-600/25 transition-all"
+                  >
+                    <InstagramIcon className="w-4 h-4 fill-white flex-shrink-0" />
+                    <span>Instagram Profile</span>
                   </a>
                 </div>
               </div>

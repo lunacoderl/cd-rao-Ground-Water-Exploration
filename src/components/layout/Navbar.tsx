@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Phone, Menu, X, ChevronRight } from 'lucide-react';
 import { YouTubeIcon } from '../common/YouTubeIcon';
+import { InstagramIcon } from '../common/InstagramIcon';
 
 interface NavbarProps {
   onOpenEnquiry?: () => void;
@@ -63,30 +64,49 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
             ))}
           </nav>
 
-          {/* YouTube Channel Button in place of get call */}
-          <div className="hidden sm:flex items-center gap-3">
+          {/* Social Channels (YouTube & Instagram) in place of get call */}
+          <div className="hidden sm:flex items-center gap-2 xl:gap-2.5">
             <a
               href="https://www.youtube.com/@BoreMitra/shorts"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 bg-[#ff0000] hover:bg-[#cc0000] text-white font-bold text-xs sm:text-sm px-4 sm:px-5 py-2.5 rounded-full shadow-md shadow-red-500/25 transition-all transform hover:-translate-y-0.5 group"
+              className="flex items-center gap-1.5 bg-[#ff0000] hover:bg-[#cc0000] text-white font-bold text-xs px-3 sm:px-3.5 py-2 rounded-full shadow-md shadow-red-500/20 transition-all transform hover:-translate-y-0.5 group"
               aria-label="Watch YouTube Channel @BoreMitra"
             >
-              <YouTubeIcon className="w-4 h-4 fill-white" />
-              <span>YouTube @BoreMitra</span>
+              <YouTubeIcon className="w-3.5 h-3.5 fill-white" />
+              <span>YouTube</span>
+            </a>
+            <a
+              href="https://www.instagram.com/c.d.raogeologist?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw=="
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] hover:opacity-90 text-white font-bold text-xs px-3 sm:px-3.5 py-2 rounded-full shadow-md shadow-pink-500/20 transition-all transform hover:-translate-y-0.5 group"
+              aria-label="Follow on Instagram @c.d.raogeologist"
+            >
+              <InstagramIcon className="w-3.5 h-3.5 fill-white" />
+              <span>Instagram</span>
             </a>
           </div>
 
-          {/* Mobile Menu & YouTube Button */}
-          <div className="flex sm:hidden items-center gap-2">
+          {/* Mobile Header Socials & Toggle */}
+          <div className="flex sm:hidden items-center gap-1.5">
             <a
               href="https://www.youtube.com/@BoreMitra/shorts"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-full bg-[#ff0000] text-white shadow-xs"
+              className="p-1.5 rounded-full bg-[#ff0000] text-white shadow-xs"
               aria-label="YouTube Channel @BoreMitra"
             >
               <YouTubeIcon className="w-4 h-4 fill-white" />
+            </a>
+            <a
+              href="https://www.instagram.com/c.d.raogeologist?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw=="
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-1.5 rounded-full bg-gradient-to-tr from-[#833ab4] via-[#fd1d1d] to-[#fcb045] text-white shadow-xs"
+              aria-label="Instagram @c.d.raogeologist"
+            >
+              <InstagramIcon className="w-4 h-4 fill-white" />
             </a>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -119,10 +139,19 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
               href="https://www.youtube.com/@BoreMitra/shorts"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#ff0000] hover:bg-[#cc0000] text-white font-bold text-sm shadow-md shadow-red-500/25"
+              className="flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#ff0000] hover:bg-[#cc0000] text-white font-bold text-sm shadow-md shadow-red-500/25"
             >
-              <YouTubeIcon className="w-5 h-5 fill-white" />
+              <YouTubeIcon className="w-4 h-4 fill-white" />
               <span>Watch on YouTube @BoreMitra</span>
+            </a>
+            <a
+              href="https://www.instagram.com/c.d.raogeologist?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw=="
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] hover:opacity-95 text-white font-bold text-sm shadow-md shadow-pink-500/25"
+            >
+              <InstagramIcon className="w-4 h-4 fill-white" />
+              <span>Follow on Instagram @c.d.raogeologist</span>
             </a>
             <a
               href="tel:+919949401970"

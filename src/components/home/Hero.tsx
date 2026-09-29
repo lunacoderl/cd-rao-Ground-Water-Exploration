@@ -1,6 +1,7 @@
 import React from 'react';
 import { Phone, ArrowRight, MessageSquare, ShieldCheck, Droplets } from 'lucide-react';
 import { YouTubeIcon } from '../common/YouTubeIcon';
+import { InstagramIcon } from '../common/InstagramIcon';
 
 interface HeroProps {
   onOpenEnquiry: () => void;
@@ -67,10 +68,21 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnquiry }) => {
               href="https://www.youtube.com/@BoreMitra/shorts"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-5 sm:px-6 py-3.5 rounded-xl bg-[#ff0000] hover:bg-[#cc0000] text-white font-bold text-sm sm:text-base shadow-xl shadow-red-600/30 transition-all transform hover:-translate-y-0.5 cursor-pointer"
+              className="flex items-center gap-2 px-4 sm:px-5 py-3.5 rounded-xl bg-[#ff0000] hover:bg-[#cc0000] text-white font-bold text-sm sm:text-base shadow-xl shadow-red-600/30 transition-all transform hover:-translate-y-0.5 cursor-pointer"
             >
               <YouTubeIcon className="w-4 h-4 fill-white" />
               <span>YouTube @BoreMitra</span>
+            </a>
+
+            {/* Instagram CTA Button */}
+            <a
+              href="https://www.instagram.com/c.d.raogeologist?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw=="
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 sm:px-5 py-3.5 rounded-xl bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] hover:opacity-95 text-white font-bold text-sm sm:text-base shadow-xl shadow-pink-600/30 transition-all transform hover:-translate-y-0.5 cursor-pointer"
+            >
+              <InstagramIcon className="w-4 h-4 fill-white" />
+              <span>Instagram @c.d.raogeologist</span>
             </a>
 
             <a
