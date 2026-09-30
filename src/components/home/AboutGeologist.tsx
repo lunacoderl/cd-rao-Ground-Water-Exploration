@@ -50,7 +50,7 @@ export const AboutGeologist: React.FC<AboutGeologistProps> = ({ onOpenEnquiry })
             </div>
 
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              C.D. Rao is an experienced geologist specialist in ground water exploration, borewell point identification, and geophysical surveys. Using scientific methods and modern equipment, he helps landowners, farmers, builders, and developers locate sustainable water sources for agricultural, residential, and commercial needs.
+              C.D. Rao is 19years experienced geologist specialist in ground water exploration, borewell point identification, and geophysical surveys. Using scientific methods and modern equipment, he helps landowners, farmers, builders, and developers locate sustainable water sources for agricultural, residential, and commercial needs.
             </p>
 
             {/* 4 Approach Badges with Check/Target icons */}
