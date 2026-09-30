@@ -10,7 +10,7 @@ export const AboutGeologist: React.FC<AboutGeologistProps> = ({ onOpenEnquiry })
     <section id="about" className="py-20 bg-white relative overflow-hidden border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          
+
           {/* Left Column: Portrait & Badge (5 cols) - Uncropped full height & width */}
           <div className="lg:col-span-5 flex flex-col items-center">
             <div className="relative w-full max-w-md rounded-2xl overflow-hidden bg-slate-50 border border-slate-200 p-2 shadow-lg group">
@@ -25,7 +25,7 @@ export const AboutGeologist: React.FC<AboutGeologistProps> = ({ onOpenEnquiry })
               {/* Pill badge overlay matching mockup */}
               <div className="absolute bottom-5 left-5 right-5 p-3 rounded-xl bg-gradient-to-r from-sky-600 to-blue-600 text-white shadow-lg text-center">
                 <span className="text-xs sm:text-sm font-bold tracking-wide flex items-center justify-center gap-1.5">
-                  <Droplets className="w-4 h-4 fill-white" />
+                  <Droplets className="w-4 h-4 fill-white" />19years of experience<br></br>
                   Trusted Ground Water Expert in Visakhapatnam
                 </span>
               </div>
