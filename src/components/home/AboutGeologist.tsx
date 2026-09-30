@@ -25,7 +25,7 @@ export const AboutGeologist: React.FC<AboutGeologistProps> = ({ onOpenEnquiry })
               {/* Pill badge overlay matching mockup */}
               <div className="absolute bottom-5 left-5 right-5 p-3 rounded-xl bg-gradient-to-r from-sky-600 to-blue-600 text-white shadow-lg text-center">
                 <span className="text-xs sm:text-sm font-bold tracking-wide flex items-center justify-center gap-1.5">
-                  <Droplets className="w-4 h-4 fill-white" />19years of experience<br></br>
+                  <Droplets className="w-4 h-4 fill-white" />14years of experience<br></br>
                   Trusted Ground Water Expert in Visakhapatnam
                 </span>
               </div>
@@ -50,7 +50,7 @@ export const AboutGeologist: React.FC<AboutGeologistProps> = ({ onOpenEnquiry })
             </div>
 
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              C.D. Rao is 19years experienced geologist specialist in ground water exploration, borewell point identification, and geophysical surveys. Using scientific methods and modern equipment, he helps landowners, farmers, builders, and developers locate sustainable water sources for agricultural, residential, and commercial needs.
+              C.D. Rao is 14years experienced geologist specialist in ground water exploration, borewell point identification, and geophysical surveys. Using scientific methods and modern equipment, he helps landowners, farmers, builders, and developers locate sustainable water sources for agricultural, residential, and commercial needs.
             </p>
 
             {/* 4 Approach Badges with Check/Target icons */}
