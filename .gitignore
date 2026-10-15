@@ -48,3 +48,8 @@ next-env.d.ts
 # Agent temporary logs and scratch files
 .system_generated/
 scratch/
+
+# Large media files
+*.mp4
+*.mov
+

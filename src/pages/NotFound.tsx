@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Home, Compass, Droplets } from 'lucide-react';
+import { SeoHead } from '../components/common/SeoHead';
 
 export const NotFound: React.FC = () => {
   return (
     <div className="pt-24 pb-20 min-h-screen bg-slate-50 flex items-center justify-center relative overflow-hidden text-center px-4">
+      <SeoHead title="Page Not Found | C.D.Rao Ground Water" noIndex={true} />
       {/* Background ambient water glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-sky-200/50 rounded-full blur-[130px] pointer-events-none"></div>
 

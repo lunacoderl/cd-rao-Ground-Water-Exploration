@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { SeoHead } from '../components/common/SeoHead';
 import { Hero } from '../components/home/Hero';
 import { TrustStrip } from '../components/home/TrustStrip';
 import { AboutGeologist } from '../components/home/AboutGeologist';
@@ -57,6 +58,7 @@ export const Home: React.FC<HomeProps> = ({
 
   return (
     <main className="relative">
+      <SeoHead canonicalPath="/" />
       <Hero onOpenEnquiry={onOpenEnquiry} />
       <TrustStrip />
       <AboutGeologist onOpenEnquiry={onOpenEnquiry} />

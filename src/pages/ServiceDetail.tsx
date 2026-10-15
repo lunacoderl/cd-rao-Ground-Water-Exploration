@@ -19,6 +19,7 @@ import { Lightbox } from '../components/common/Lightbox';
 import { EnquiryModal } from '../components/common/EnquiryModal';
 import { YouTubeIcon } from '../components/common/YouTubeIcon';
 import { InstagramIcon } from '../components/common/InstagramIcon';
+import { SeoHead } from '../components/common/SeoHead';
 
 export const ServiceDetail: React.FC = () => {
   const { serviceSlug } = useParams<{ serviceSlug: string }>();
@@ -45,7 +46,11 @@ export const ServiceDetail: React.FC = () => {
 
   return (
     <div className="pt-20 bg-white text-slate-900 min-h-screen">
-      
+      <SeoHead
+        title={`${service.title} in Visakhapatnam | C.D.Rao Ground Water`}
+        description={service.shortDescription}
+        canonicalPath={`/services/${service.slug}`}
+      />
       {/* Section A: Service Hero Banner (Dark photo banner matching mockup Panel 2) */}
       <section className="relative py-16 sm:py-24 overflow-hidden border-b border-sky-900/30">
         <div className="absolute inset-0 z-0">
